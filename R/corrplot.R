@@ -626,6 +626,9 @@ corrplot <- function(corr,
 
   ## circle
   if (method == "circle" && plotCI == "n") {
+    if (is.null(size_vector)){
+      size_vector <- abs(DAT)
+    }
     symbols(Pos, add = TRUE,  inches = FALSE,
             circles = asp_rescale_factor * 0.9 * size_vector ^ 0.5 / 2,
             fg = col.border, bg = col.fill)
