@@ -272,6 +272,7 @@ corrplot <- function(corr,
   lowCI.mat = NULL, uppCI.mat = NULL,
   na.label = "?", na.label.col = "black",
   win.asp = 1,
+  size_vector = NULL,
   ...)
 {
 
@@ -746,7 +747,10 @@ corrplot <- function(corr,
 
   ## square
   if (method == "square" && plotCI == "n") {
-    draw_method_square(Pos, DAT, asp_rescale_factor, col.border, col.fill)
+    symbols(Pos, add = TRUE, inches = FALSE,
+            square = asp_rescale_factor * 0.9 * size_vector ^ 0.5 / 2,
+            fg = col.border, bg = col.fill)
+    
   }
 
   ## color
